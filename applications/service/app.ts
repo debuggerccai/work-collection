@@ -1,12 +1,13 @@
-import {Context, Next} from "koa";
+import { Context, Next } from 'koa'
 
-const config = require('./config')
 const Koa = require('koa')
+
 const app = new Koa()
-const views = require('koa-views')
-const json = require('koa-json')
 const bodyparser = require('koa-bodyparser')
+const json = require('koa-json')
 const logger = require('koa-logger')
+const views = require('koa-views')
+const config = require('./config')
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -14,13 +15,13 @@ const users = require('./routes/users')
 
 // middlewares
 app.use(bodyparser({
-  enableTypes:['json', 'form', 'text']
+  enableTypes: ['json', 'form', 'text']
 }))
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(require('koa-static')(`${__dirname}/public`))
 
-app.use(views(__dirname + '/views', {
+app.use(views(`${__dirname}/views`, {
   extension: 'pug'
 }))
 
@@ -39,11 +40,11 @@ app.use(users.routes(), users.allowedMethods())
 // error-handling
 app.on('error', (err: string, ctx: Context) => {
   console.error('server error', err, ctx)
-});
+})
 
 app.listen(config.PORT, (err: Error) => {
-  if (err) console.log("Error in server setup")
-  console.log("Server run link", `localhost:${config.PORT}`);
+  if (err) console.log('Error in server setup')
+  console.log('Server run link', `localhost:${config.PORT}`)
 })
 
 module.exports = app
