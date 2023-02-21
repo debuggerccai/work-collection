@@ -1,11 +1,5 @@
-# `service`
+### 作品集的后端服务
 
-> TODO: description
+### 功能清单
 
-## Usage
-
-```
-const service = require('service');
-
-// TODO: DEMONSTRATE API
-```
+- [ ] 用户管理
