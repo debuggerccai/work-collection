@@ -1,0 +1,26 @@
+{
+  "name": "scroll",
+  "version": "0.0.0",
+  "description": "A scrollbar component",
+  "keywords": [
+    "滚动条",
+    "虚拟滚动"
+  ],
+  "author": "lwcai <cailw@mingyuanyun.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/scroll.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry-npm.mypaas.com.cn"
+  },
+  "scripts": {
+    "test": "node ./__tests__/scroll.test.js"
+  }
+}

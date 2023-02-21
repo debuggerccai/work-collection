@@ -1,0 +1,18 @@
+{
+  "name": "work-collection",
+  "private": true,
+  "description": "A personal work collection by lwcai",
+  "keywords": [
+    "monorepo",
+    "javascript",
+    "node",
+    "react"
+  ],
+  "workspaces": [
+    "applications/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^6.5.1"
+  }
+}
