@@ -55,6 +55,7 @@ module.exports = {
     'react/jsx-indent': ['error', 2],
     'react/jsx-max-props-per-line': [1, { when: 'multiline' }],
     'react/jsx-no-bind': ['off'],
+    'react/jsx-one-expression-per-line': ['off'],
     'jsx-a11y/no-static-element-interactions': ['off'],
     'jsx-a11y/anchor-is-valid': ['off'], // 关闭a标签必须传入href一个有效值的报错
     'jsx-a11y/click-events-have-key-events': ['off'],
