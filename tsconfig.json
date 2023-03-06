@@ -1,28 +1,12 @@
 {
   "compilerOptions": {
-    "jsx": "react",
     "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["es2017"],
     "noEmit": true,
     "strict": true,
-    "baseUrl": "./",
-    "paths": {
-      "src/*": ["src/*"]
-    },
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "useWebpackText": true,
-    "useTranspileModule": true,
-    "doTypeCheck": true,
-    "forkChecker": true
-  }
+  ]
 }

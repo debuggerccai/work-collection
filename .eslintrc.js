@@ -5,6 +5,7 @@ module.exports = {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: { jsx: true, },
+    requireConfigFile: false,
   },
   env: {
     browser: true,
@@ -16,6 +17,10 @@ module.exports = {
     'airbnb',
   ],
   settings: {
+    'import/resolver': {
+      // 解析webpack配置项, 使用里面的参数
+      webpack: { config: './applications/website/webpack/webpack.base.js', },
+    },
     react: {
       createClass: 'createReactClass',
       pragma: 'React',
@@ -48,6 +53,7 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
     'import/no-dynamic-require': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'react/no-find-dom-node': 'off',
     'react/jsx-filename-extension': 'off',
@@ -56,6 +62,13 @@ module.exports = {
     'react/jsx-max-props-per-line': [1, { when: 'multiline' }],
     'react/jsx-no-bind': ['off'],
     'react/jsx-one-expression-per-line': ['off'],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
     'jsx-a11y/no-static-element-interactions': ['off'],
     'jsx-a11y/anchor-is-valid': ['off'], // 关闭a标签必须传入href一个有效值的报错
     'jsx-a11y/click-events-have-key-events': ['off'],
