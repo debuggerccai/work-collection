@@ -7,32 +7,52 @@ import React, {
   useCallback, useEffect, useRef, useState, useMemo
 } from 'react'
 import {
-  Button, Form, Input, Typography, Row, Col
+  Button, Form, Input, Typography, Row, Col, message
 } from 'antd'
 import { debounce } from 'lodash'
-import { postLogin, postVerify } from 'src/services'
+import { postRegister, postVerify, RegisterParams } from 'src/services'
 import { getRules } from 'src/utils'
 import { isEmail } from 'src/utils/isType'
+import { useNavigate } from 'react-router-dom'
 
 let timer: any = null
 
 const Register: React.FC = () => {
+  const [form] = Form.useForm()
+  const navigate = useNavigate()
   const [isSendCode, setIsSendCode] = useState(false)
   const [countdown, setCountdown] = useState(60)
-  const onFinish = async (values: { username: string, password: string }) => {
-    const { result, data } = await postLogin(values)
+  const onFinish = async (values: RegisterParams & { confirm: string }) => {
+    const { confirm, ...restValue } = values
 
-    // if (result) {
-    //
-    // }
+    const { result, msg } = await postRegister(restValue)
+
+    if (!result) {
+      msg && message.error(msg)
+      return
+    }
+
+    navigate('/user/login')
   }
 
   const onSendCode = useCallback(async () => {
+    const email = form.getFieldValue('email')
+
+    if (!isEmail(email)) {
+      message.error('请输入正确的邮箱地址')
+      return
+    }
+
+    const { result, msg } = await postVerify({ email })
+
+    if (!result) {
+      msg && message.error(msg)
+      return
+    }
+
     setIsSendCode(true)
 
     timer = setInterval(() => {
-      console.log('setInterval...', countdown)
-
       setCountdown((val) => {
         if (val === 1) {
           setIsSendCode(false)
@@ -60,6 +80,7 @@ const Register: React.FC = () => {
   return (
     <Form
       style={{ width: '100%' }}
+      form={form}
       onFinish={onFinish}
       validateMessages={validateMessages}
     >

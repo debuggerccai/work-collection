@@ -30,20 +30,16 @@ export default function ajax(path: string, data: object, method: 'GET' | 'POST')
     promise = axios.get(endpoint, { params: data })
   } else {
     axios.defaults.headers.post = { ...headers }
-    promise = axios.post(endpoint, { params: data })
+    promise = axios.post(endpoint, data)
   }
 
   return promise
     .then((res) => {
-      console.log('promise then...', res)
+      if (!Reflect.has(res.data, 'result')) message.error('网络请求失败')
 
-      if (!res.data?.result) message.error('网络请求失败')
-
-      return res.data || {}
+      return res.data || { result: false, msg: '' }
     })
     .catch((error) => {
-      console.log('promise catch...', error)
-
       const { response = {} } = error
       const { data = {} } = response
       const originalRequest = error.config

@@ -1,3 +1,5 @@
+import Cookie from 'js-cookie'
+
 export default function getFetchOptions(endpoint: any, method: 'GET' | 'POST' = 'GET', opts: any = {}) {
   const headers = opts.headers || {}
   const defaultOptions = {
@@ -9,6 +11,7 @@ export default function getFetchOptions(endpoint: any, method: 'GET' | 'POST' = 
       Accept: '*/*',
       'X-Requested-With': 'XMLHttpRequest',
       'Content-Type': headers['Content-Type'] || 'application/json',
+      'Authorization': Cookie.get('_auth_token'),
       ...headers,
     },
   }

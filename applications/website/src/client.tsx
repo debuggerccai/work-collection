@@ -12,10 +12,13 @@ import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter } from 'react-router-dom'
 import RenderRoutes from 'src/routes'
 import reportWebVitals from './reportWebVitals'
+import { m } from './memory'
 import './static/css/index.less'
 
 const history = createBrowserHistory()
 
+// 缓存信息
+m.set('history', history)
 
 const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)

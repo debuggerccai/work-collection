@@ -41,7 +41,7 @@ module.exports = merge(webpackBaseConfig, {
         target: config.proxyServer,
         changeOrigin: true,
         secure: false,
-        pathRewrite: { '^/api': '' }
+        pathRewrite: { '^/api': '/api' }
       },
     }
   },

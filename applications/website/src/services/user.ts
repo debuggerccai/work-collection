@@ -15,8 +15,8 @@ export interface RegisterParams extends LoginParams {
   code: string
 }
 
-export const postLogin = (params: LoginParams) => ajax('/login', params, 'POST')
+export const postLogin = (params: LoginParams) => ajax('/user/login', params, 'POST')
 
-export const postRegister = (params: RegisterParams) => ajax('/login', params, 'POST')
+export const postRegister = (params: RegisterParams) => ajax('/user/register', params, 'POST')
 
-export const postVerify = () => ajax('/verify', {}, 'POST')
+export const postVerify = (parmas: Pick<RegisterParams, 'email'>) => ajax('/user/verify', parmas, 'POST')

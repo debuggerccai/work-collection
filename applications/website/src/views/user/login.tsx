@@ -4,6 +4,7 @@
  * Date: 2023-02-23
  */
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Form, Input, Button, Typography
 } from 'antd'
@@ -11,11 +12,12 @@ import { postLogin, LoginParams } from 'src/services'
 import { getRules } from 'src/utils'
 
 const Login: React.FC = () => {
+  const navigate = useNavigate()
   const onFinish = async (values: LoginParams) => {
     const { result, data } = await postLogin(values)
 
     if (result) {
-
+      navigate('/')
     }
   }
 
