@@ -8,7 +8,7 @@ import {
   theme, Row, Col
 } from 'antd'
 import { Outlet } from 'react-router-dom'
-import './login.less'
+import styles from './user.module.scss'
 
 const { useToken } = theme
 
@@ -18,8 +18,8 @@ const User: React.FC = () => {
   return (
     <Row style={{ width: '100%', height: '100%', backgroundColor: token.colorPrimaryActive }}>
       <Col lg={{ span: 16, order: 0 }} md={{ span: 24, order: 1 }} xs={{ span: 24, order: 1 }}>内容展示区1</Col>
-      <Col className="login-box-wrap" lg={{ span: 8, order: 0 }} md={{ span: 24, order: 0 }} xs={{ span: 24, order: 0 }}>
-        <Row className="login-box" align="middle" justify="center">
+      <Col className={styles.loginBoxWrap} lg={{ span: 8, order: 0 }} md={{ span: 24, order: 0 }} xs={{ span: 24, order: 0 }}>
+        <Row className={styles.loginBox} align="middle" justify="center">
           <Outlet />
         </Row>
       </Col>

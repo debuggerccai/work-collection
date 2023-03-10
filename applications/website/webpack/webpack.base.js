@@ -29,10 +29,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
       {
-        test: /\.less$/,
+        test: /\.s[ac]ss$/i,
         use: [
           {
             loader: 'style-loader',
@@ -40,16 +40,19 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
+              importLoaders: 2,
+              modules: {
+                localIdentName: '[local]--[hash:base64:5]'
+              }
             },
           },
           {
             loader: 'postcss-loader',
           },
           {
-            loader: 'less-loader', // compiles Less to CSS
+            loader: 'sass-loader',
             options: {
-              sourceMap: true
+              // sourceMap: true
             },
           }
         ]

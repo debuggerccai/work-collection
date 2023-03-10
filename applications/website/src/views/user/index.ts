@@ -3,9 +3,9 @@
  * Description: index
  * Date: 2023-03-06
  */
-import Login from 'src/views/user/login'
-import Register from 'src/views/user/register'
-import User from 'src/views/user/user'
+import Login from 'src/views/user/Login'
+import Register from 'src/views/user/Register'
+import User from 'src/views/user/User'
 
 export {
   User,

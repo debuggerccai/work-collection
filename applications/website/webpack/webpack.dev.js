@@ -58,8 +58,8 @@ module.exports = merge(webpackBaseConfig, {
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, '../src/static/index.template'),
       filename: './index.html',
-      // scriptsTemplate: scriptConfig.getScriptsTemplate(),
-      // cssTemplate: scriptConfig.getCssTemplate(),
+      scriptsTemplate: scriptConfig.getScriptsTemplate(),
+      cssTemplate: scriptConfig.getCssTemplate(),
     }),
 
     new MiniCssExtractPlugin({

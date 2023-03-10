@@ -3,7 +3,7 @@ const config = require('../src/config')
 // 基本script
 const baseScripts = {
   icon: {
-    url: config.iconJS,
+    url: config.iconJs,
   }
 }
 // 基本link

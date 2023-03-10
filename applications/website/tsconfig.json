@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ES2015",
-    "module": "es2015",
+    "module": "esnext",
     "lib": ["es2019", "DOM", "ES6" ,"DOM.Iterable", "ScriptHost"],                             /* Specify library files to be included in the compilation. */
     "baseUrl": "./",
     "paths": {
@@ -20,7 +20,8 @@
     "types": ["webpack-env"]
   },
   "include": [
-    "src"
+    "src",
+    "./react-app-env.d.ts"
   ],
   "exclude": [
     "node_modules",

@@ -1,9 +1,3 @@
-if (module.hot) {
-  module.hot.accept('./routes/index.tsx', () => {
-    render()
-  })
-}
-
 import React from 'react'
 import { ConfigProvider } from 'antd'
 import { createBrowserHistory } from 'history'
@@ -11,9 +5,9 @@ import { createRoot } from 'react-dom/client'
 import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter } from 'react-router-dom'
 import RenderRoutes from 'src/routes'
-import reportWebVitals from './reportWebVitals'
 import { m } from './memory'
-import './static/css/index.less'
+import reportWebVitals from './reportWebVitals'
+import './static/css/index.scss'
 
 const history = createBrowserHistory()
 
@@ -30,6 +24,7 @@ const render = () => {
         colorSuccess: '#722ED1',
         colorWarning: '#FAAD14',
         colorInfo: '#722ED1',
+        colorText: '#000',
         fontSize: 14
       }
     }}
@@ -44,6 +39,13 @@ const render = () => {
 }
 
 render()
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept('./routes/index.tsx', () => {
+    console.log('module.hot')
+    render()
+  })
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

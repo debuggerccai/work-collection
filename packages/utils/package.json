@@ -1,0 +1,32 @@
+{
+  "name": "@work-collection/utils",
+  "version": "0.0.0",
+  "description": "common utils for work-collection",
+  "keywords": [
+    "util"
+  ],
+  "author": "debuggerccai <cailiangwu@outlook.com>",
+  "homepage": "https://github.com/debuggerccai/work-collection",
+  "license": "ISC",
+  "main": "lib/utils.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debuggerccai/work-collection.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/@work-collection/utils.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/debuggerccai/work-collection/issues"
+  }
+}

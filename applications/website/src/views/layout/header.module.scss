@@ -1,0 +1,16 @@
+.header {
+  h1 {
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      text-align: center;
+    }
+    //@include for_breakpoint(xs sm) {
+    //  width: 100%;
+    //  text-align: center;
+    //}
+  }
+
+  a {
+    color: #000;
+  }
+}

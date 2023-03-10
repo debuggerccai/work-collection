@@ -4,9 +4,7 @@
  * Date: 2023-02-22
  */
 import React from 'react'
-import {
-  Routes, Route, Navigate, useRoutes
-} from 'react-router-dom'
+import { useRoutes } from 'react-router-dom'
 
 import Main from 'src/views/layout'
 import { User, Login, Register } from 'src/views/user'
